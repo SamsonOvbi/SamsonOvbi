@@ -1,0 +1,22 @@
+name: Poll Multiple Websites
+
+on:
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Poll Website 1 (13 minutes)
+        uses: cheerz/poll_status@v1
+        with:
+          url: "https://mamaput-chat.onrender.com/keep-alive"  # Replace with your URL
+          timeout: 1800  # Timeout in seconds (30 minutes)
+          interval: 780  # Polling interval in seconds (13 minutes)
+
+      - name: Poll Website 2 (17 minutes)
+        uses: cheerz/poll_status@v1
+        with:
+          url: "https://mamaput-eshop-1.onrender.com/keep-alive"  # Replace with your URL
+          timeout: 1800  # Timeout in seconds (30 minutes)
+          interval: 1020  # Polling interval in seconds (17 minutes)
